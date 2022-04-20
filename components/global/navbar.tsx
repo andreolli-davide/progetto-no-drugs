@@ -12,8 +12,8 @@ export default function NavBar({ selected }: NavBarProps) {
             </span><span>Progetto No Drugs</span></a><button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse" id="navcol-1">
                     <ul className="navbar-nav me-auto">
-                        <li className="nav-item"><a className="nav-link active" href="#">Progetti</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#">Informazioni</a></li>
+                        <li className="nav-item"><a className={selected === "articoli" ? "nav-link active" : "nav-link"} href="#">Progetti</a></li>
+                        <li className="nav-item"><a className={selected === "informazioni" ? "nav-link active" : "nav-link"} href="#">Informazioni</a></li>
                     </ul><button className="btn btn-primary" type="button">Login</button>
                 </div>
             </div>
