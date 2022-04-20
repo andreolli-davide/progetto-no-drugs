@@ -42,7 +42,7 @@ export default function ArticlesContainer() {
             { articles.length !== 0 ? 
                 
                 <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-                    { articles.map((value) => <Article article={value} />) }
+                    { articles.map((value, index) => ( <Article article={value} key={ index }/> )) }
                 </div> : <h2 className="text-center">Ops... non ci sono articoli</h2>
             }
         </div>
