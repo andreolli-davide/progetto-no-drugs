@@ -9,7 +9,11 @@ const nextConfig = {
                 permanent: true
             }
         ]
-    }
+    },
+    images: {
+        // TODO: DA RIMUOVERE, solo per test
+        domains: ["cdn.bootstrapstudio.io"],
+    },
 }
 
 module.exports = nextConfig
