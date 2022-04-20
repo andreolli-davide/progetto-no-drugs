@@ -4,7 +4,7 @@ import NavBar from "./navbar";
 
 type LayoutProps = {
     navBarSelected?: "articoli" | "informazioni" | undefined,
-    children: ReactElement
+    children: ReactElement[]
 }
 
 export default function Layout ({ navBarSelected, children }: LayoutProps) {
