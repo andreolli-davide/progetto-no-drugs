@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export type article = {
+export type articlePreview = {
     title: string,
     description: string,
     schoolClass: string,
@@ -10,7 +10,7 @@ export type article = {
 }
 
 type ArticleProps = {
-    article: article
+    article: articlePreview
 }
 
 export default function Article({ article }: ArticleProps) {
