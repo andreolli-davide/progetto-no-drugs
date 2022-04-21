@@ -15,7 +15,7 @@ interface queryParams extends ParsedUrlQuery {
 export default function ArticlePage ({ article }: articlePageProps) {
     
     return (
-        <Layout navBarSelected='articoli'>
+        <Layout pageTitle={ article.title } navBarSelected='articoli'>
             <div className="container d-flex flex-column align-items-center py-4 py-xl-5">
                 <div className="row mb-1" style={{ width: "100%", marginBottom: "12px" }}>
                     <div className="col-md-8 col-xl-6 text-center mx-auto">

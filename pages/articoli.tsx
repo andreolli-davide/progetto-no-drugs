@@ -7,7 +7,7 @@ import { db } from '../utils/database'
 
 export default function ArticlesHomePage ({ articles }: ArticlesContainerProps) {
     return (
-        <Layout navBarSelected='articoli'>
+        <Layout pageTitle='Articoli' navBarSelected='articoli'>
             <HeroBanner />
             <ArticlesContainer articles={ articles }/>
         </Layout>
