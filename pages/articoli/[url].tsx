@@ -13,10 +13,19 @@ interface queryParams extends ParsedUrlQuery {
 }
 
 export default function ArticlePage ({ article }: articlePageProps) {
+    
     return (
         <Layout navBarSelected='articoli'>
-            <h1>{ article.title }</h1>
-            <h4>{ article.description }</h4>
+            <div className="container d-flex flex-column align-items-center py-4 py-xl-5">
+                <div className="row mb-1" style={{ width: "100%", marginBottom: "12px" }}>
+                    <div className="col-md-8 col-xl-6 text-center mx-auto">
+                        <h2>{ article.title }</h2>
+                        <p className="w-lg-50">{ article.description }</p>
+                    </div>
+                </div>
+            </div>
+            <div className="container" dangerouslySetInnerHTML={{ __html: article.content }}>
+            </div>           
         </Layout>
     )
 }
