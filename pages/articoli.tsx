@@ -5,7 +5,7 @@ import HeroBanner from '../components/articoli/heroBanner'
 import Layout from '../components/global/layout'
 import { db } from '../utils/database'
 
-const Home: NextPage<ArticlesContainerProps> = ({ articles }) => {
+export default function ArticlesHomePage ({ articles }: ArticlesContainerProps) {
     return (
         <Layout navBarSelected='articoli'>
             <HeroBanner />
@@ -17,7 +17,7 @@ const Home: NextPage<ArticlesContainerProps> = ({ articles }) => {
 export const getStaticProps: GetStaticProps = async () => {
 
     const articles: articlePreview[] = await db.article.findMany({ select: {  
-        id: true, description: true, school: true, 
+        id: true, url: true, description: true, school: true, 
         schoolClass: true, schoolImage: true, schoolYear: true, title: true
     }})
     
@@ -27,5 +27,3 @@ export const getStaticProps: GetStaticProps = async () => {
         },
     };
 };
-
-export default Home

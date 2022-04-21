@@ -6,7 +6,8 @@ export type articlePreview = {
     schoolClass: string,
     school: string,
     schoolImage: string,
-    schoolYear: string
+    schoolYear: string,
+    url: string
 }
 
 type ArticleProps = {
@@ -14,11 +15,14 @@ type ArticleProps = {
 }
 
 export default function Article({ article }: ArticleProps) {
+
     return (
         <div className="col">
             <div className="p-4"><span className="badge rounded-pill bg-primary mb-2">{ article.schoolYear }</span>
-                <h4>{ article.title }</h4>
-                <p>{ article.description }</p>
+                <a href={ `articoli/${article.url}` } style={{ color: "inherit", textDecoration: "none" }}>
+                    <h4 className="text-dark">{ article.title }</h4>
+                    <p className="text-dark">{ article.description }</p>
+                </a>
                 <div className="d-flex">
                     <div className="me-3">
                         <Image className="rounded-circle flex-shrink-0 fit-cover" width="50" height="50" src={ article.schoolImage } alt={ article.school }/>
