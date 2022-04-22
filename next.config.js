@@ -14,6 +14,10 @@ const nextConfig = {
         // TODO: DA RIMUOVERE, solo per test
         domains: ["cdn.bootstrapstudio.io"],
     },
+    i18n: {
+        locales: ['it'],
+        defaultLocale: 'it'
+    }
 }
 
 module.exports = nextConfig
