@@ -1,11 +1,12 @@
 import { Article } from "@prisma/client"
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
+import Error from "next/error"
 import { ParsedUrlQuery } from "querystring"
 import Layout from "../../components/global/layout"
 import { db } from "../../utils/database"
 
 type articlePageProps = {
-    article: Article
+    article: Article | null
 }
 
 interface queryParams extends ParsedUrlQuery {
@@ -13,6 +14,8 @@ interface queryParams extends ParsedUrlQuery {
 }
 
 export default function ArticlePage ({ article }: articlePageProps) {
+
+    if (!article) return <Error statusCode={ 404 } />
     
     return (
         <Layout pageTitle={ article.title } navBarSelected='articoli'>
@@ -35,7 +38,6 @@ export const getStaticProps: GetStaticProps<articlePageProps, queryParams> = asy
     const { url } = context.params as queryParams
     
     const article: Article | null = await db.article.findUnique({ where: { url:  url } })
-    if (article == null) throw Error
     
     return {
         props: {
