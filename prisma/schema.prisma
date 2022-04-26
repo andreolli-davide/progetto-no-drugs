@@ -18,5 +18,6 @@ model Article {
   schoolImage         String
   schoolYear          String
   publicationDatetime String 
+  files               Json[]
 }
 

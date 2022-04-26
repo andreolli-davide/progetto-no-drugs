@@ -12,7 +12,7 @@ const nextConfig = {
     },
     images: {
         // TODO: DA RIMUOVERE, solo per test
-        domains: ["cdn.bootstrapstudio.io"],
+        domains: ["cdn.bootstrapstudio.io", "www.icfondorevo.it"],
     },
     i18n: {
         locales: ['it'],

@@ -16,10 +16,13 @@ export default function ArticlesHomePage ({ articles }: ArticlesContainerProps) 
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const articles: articlePreview[] = await db.article.findMany({ select: {  
-        id: true, url: true, description: true, school: true, 
-        schoolClass: true, schoolImage: true, schoolYear: true, title: true
-    }})
+    const articles: articlePreview[] = await db.article.findMany({ 
+        select: {  
+            id: true, url: true, description: true, school: true, 
+            schoolClass: true, schoolImage: true, schoolYear: true, title: true
+        },
+        orderBy: [{ publicationDatetime: "desc" }]
+    })
     
     return {
         props: {
