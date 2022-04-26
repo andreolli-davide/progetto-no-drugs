@@ -20,7 +20,7 @@ export default function FilesContainer({ files }: FilesContainerProps) {
                 </div>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-auto">
-                { fileObjects.map(file => <File file={ file }/>) }
+                { fileObjects.map(file => <File key={ fileObjects.indexOf(file) } file={ file }/>) }
             </div>
         </div>
     )
