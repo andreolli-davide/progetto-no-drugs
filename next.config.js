@@ -11,8 +11,7 @@ const nextConfig = {
         ]
     },
     images: {
-        // TODO: DA RIMUOVERE, solo per test
-        domains: ["cdn.bootstrapstudio.io", "www.icfondorevo.it"],
+        domains: ["https://progettonodrugs.s3.eu-central-1.amazonaws.com"],
     },
     i18n: {
         locales: ['it'],
