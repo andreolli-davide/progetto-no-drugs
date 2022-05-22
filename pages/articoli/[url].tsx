@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import Error from "next/error"
 import { ParsedUrlQuery } from "querystring"
 import Layout from "../../components/global/layout"
-import FilesContainer from "../../components/prop/fileContainer"
+import FilesContainer from "../../components/files/fileContainer"
 import { db } from "../../utils/database"
 
 type articlePageProps = {
@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<articlePageProps, queryParams> = asy
         props: {
             article
         },
-        revalidate: 120
+        revalidate: 60
     }
 }
 

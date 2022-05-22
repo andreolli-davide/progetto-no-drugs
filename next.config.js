@@ -11,7 +11,7 @@ const nextConfig = {
         ]
     },
     images: {
-        domains: ["https://progettonodrugs.s3.eu-central-1.amazonaws.com"],
+        domains: ["progettonodrugs.s3.eu-central-1.amazonaws.com"],
     },
     i18n: {
         locales: ['it'],

@@ -21,3 +21,8 @@ model Article {
   files               Json[]
 }
 
+model Account {
+  nickname            String @id @map("_id")
+  school              String
+  image               String
+}

@@ -5,7 +5,7 @@ import Footer from "./footer";
 import NavBar from "./navbar";
 
 type LayoutProps = {
-    navBarSelected?: "articoli" | "informazioni" | undefined,
+    navBarSelected?: "articoli" | "informazioni" | "nuovoArticolo" | undefined,
     pageTitle?: string,
     showFooter?: boolean,
     seoDescription?: string,

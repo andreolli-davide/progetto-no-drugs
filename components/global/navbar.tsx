@@ -1,11 +1,14 @@
-import type { AppProps } from 'next/app'
+import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 
-type NavBarProps = {
-    selected?: "articoli" | "informazioni" | undefined
+export type NavBarProps = {
+    selected?: "articoli" | "informazioni" | "nuovoArticolo" | undefined
 }
 
 export default function NavBar({ selected }: NavBarProps) {
+
+    const { user, error } = useUser()
+
     return (
         <nav className="navbar navbar-light navbar-expand-md py-3">
             <div className="container"><Link href="/articoli" passHref={ true }><div className="navbar-brand d-flex align-items-center"><span className="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
@@ -13,9 +16,14 @@ export default function NavBar({ selected }: NavBarProps) {
             </span><span>Progetto No Drugs</span></div></Link><button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span className="visually-hidden">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse" id="navcol-1">
                     <ul className="navbar-nav me-auto">
-                        <li className="nav-item"><a className={selected === "articoli" ? "nav-link active" : "nav-link"} href="#">Progetti</a></li>
-                        <li className="nav-item"><a className={selected === "informazioni" ? "nav-link active" : "nav-link"} href="#">Informazioni</a></li>
-                    </ul><button className="btn btn-primary" type="button">Login</button>
+                        <li className="nav-item"><a className={selected === "articoli" ? "nav-link active" : "nav-link"} href="/it/articoli">Articoli</a></li>
+                        <li className="nav-item"><a className={selected === "informazioni" ? "nav-link active" : "nav-link"} href="/it/informazioni">Informazioni</a></li>
+                        { user && <li className="nav-item"><a className={selected === "nuovoArticolo" ? "nav-link active" : "nav-link"} href="/it/articoli/new">Nuovo Articolo</a></li> }
+                    </ul>
+                    { !user ?  
+                        <Link href="/api/auth/login" passHref><button className="btn btn-primary" type="button">Login</button></Link> : 
+                        <Link href="/api/auth/logout" passHref><button className="btn btn-primary" type="button">Logout</button></Link> 
+                    }
                 </div>
             </div>
         </nav>

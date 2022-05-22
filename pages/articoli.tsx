@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 import { articlePreview } from '../components/articoli/article'
 import ArticlesContainer, { ArticlesContainerProps } from '../components/articoli/articlesContainer'
 import HeroBanner from '../components/articoli/heroBanner'
@@ -28,5 +28,6 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             articles
         },
+        revalidate: 60
     };
 };
